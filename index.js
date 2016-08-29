@@ -1,18 +1,24 @@
 const ejs = require('ejs');
 const fs = require('fs');
+const yaml = require('js-yaml');
 
 const list = fs.readdirSync(`${__dirname}/lists`)
   .sort()
   .reverse()
   .map(file => {
-    const lines = fs.readFileSync(`${__dirname}/lists/${file}`).toString().split('\n');
+    const doc = yaml.safeLoad(fs.readFileSync(`${__dirname}/lists/${file}`, 'utf8'));
     return {
-      title: lines[0],
-      date: file,
-      quote: {
-        jp: lines[1],
-        kr: lines[2],
-      },
+      date: file.replace('.yml', ''),
+      titles: Object.keys(doc).map(title => {
+        const jps = doc[title].filter((_, i) => { return i%2 == 0 });
+        const krs = doc[title].filter((_, i) => { return i%2 == 1 });
+        return {
+          title: title,
+          quotes: jps.map((jp, i) => {
+            return { jp: jp, kr: krs[i] };
+          })
+        };
+      })
     };
   });
 
