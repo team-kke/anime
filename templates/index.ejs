@@ -32,12 +32,16 @@
     <h2><a href='https://github.com/alldne'>정용욱</a>의 감상 목록</h2>
     <ul>
       <% list.forEach(item => { %>
+        <% item.titles.forEach(title => { %>
         <li>
-          <%= item.title %> <span class='date'><%= item.date %></span>
+          <%= title.title %> <span class='date'><%= item.date %></span>
+          <% title.quotes.forEach(quote => { %>
           <ul class='quote'>
-            <li><%= item.quote.jp %><span class='dash'>—</span><%= item.quote.kr %></li>
+            <li><%= quote.jp %><span class='dash'>—</span><%= quote.kr %></li>
           </ul>
+          <% }) %>
         </li>
+        <% }) %>
       <% }) %>
     </ul>
   </body>
