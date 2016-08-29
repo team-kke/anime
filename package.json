@@ -1,0 +1,21 @@
+{
+  "name": "anime",
+  "version": "1.0.0",
+  "description": "Improve your Japanese with watching anime!",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "dependencies": {
+    "ejs": "^2.5.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"테스트는 겁쟁이들만 한다\"",
+    "build": "node . > docs/index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/team-kke/anime.git"
+  }
+}
