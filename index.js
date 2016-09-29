@@ -18,7 +18,7 @@ const list = fs.readdirSync(`${__dirname}/lists`)
             return { jp: jp, kr: krs[i] };
           })
         };
-      })
+      }).reverse()
     };
   });
 
