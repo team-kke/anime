@@ -9,7 +9,7 @@ const list = fs.readdirSync(`${__dirname}/lists`)
     const doc = yaml.safeLoad(fs.readFileSync(`${__dirname}/lists/${file}`, 'utf8'));
     return {
       date: file.replace('.yml', ''),
-      titles: Object.keys(doc).map(title => {
+      episodes: Object.keys(doc).map(title => {
         const jps = doc[title].filter((_, i) => { return i%2 == 0 });
         const krs = doc[title].filter((_, i) => { return i%2 == 1 });
         return {
