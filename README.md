@@ -5,5 +5,9 @@ Improve your Japanese with watching anime!
 
 [:clipboard: List](https://team-kke.github.io/anime/)
 
+## Bot
+
+There is a [bot](https://github.com/team-kke/anime-bot) to send alarm via [LINE Notify](https://notify-bot.line.me).
+
 ## License
 [Beerware](LICENSE)
